@@ -277,41 +277,59 @@ function App() {
           <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
             See how we transform spaces and create unforgettable experiences through our event showcases
           </p>
+          
           <div className="relative max-w-4xl mx-auto">
-            <div className="aspect-w-16 aspect-h-9">
-              <LiteYouTubeEmbed
-                id={videos[currentVideoIndex].id}
-                title={videos[currentVideoIndex].title}
-                poster="maxresdefault"
-              />
-            </div>
-            <div className="flex justify-between mt-8">
-              <button
-                onClick={previousVideo}
-                className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button
-                onClick={nextVideo}
-                className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
-              >
-                <ChevronRight size={24} />
-              </button>
-            </div>
-            <div className="flex justify-center mt-4 space-x-2">
-              {videos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentVideoIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentVideoIndex ? 'bg-gold' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+  <div className="aspect-w-16 aspect-h-9">
+    <iframe
+      width="100%"
+      height="400"
+      src={`https://www.youtube.com/watch?v=13Fd-vOIm5k&pp=ygUMdGluYWggZXZlbnRz0gcJCb0Ag7Wk3p_U/embed/${videos[currentVideoIndex].id}`}
+      title={videos[currentVideoIndex].title}
+      frameBorder="0"
+      allowFullScreen
+    ></iframe>
+  </div>
+
+  {/* Display YouTube video link */}
+  <div className="text-center mt-4">
+    <a
+      href={`https://www.youtube.com/watch?v=13Fd-vOIm5k&pp=ygUMdGluYWggZXZlbnRz0gcJCb0Ag7Wk3p_U/watch?v=${videos[currentVideoIndex].id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 hover:underline"
+    >
+      Watch on YouTube
+    </a>
+  </div>
+
+  <div className="flex justify-between mt-8">
+    <button
+      onClick={previousVideo}
+      className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
+    >
+      <ChevronLeft size={24} />
+    </button>
+    <button
+      onClick={nextVideo}
+      className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
+    >
+      <ChevronRight size={24} />
+    </button>
+  </div>
+
+  <div className="flex justify-center mt-4 space-x-2">
+    {videos.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentVideoIndex(index)}
+        className={`w-2 h-2 rounded-full transition-colors ${
+          index === currentVideoIndex ? 'bg-gold' : 'bg-gray-300'
+        }`}
+      />
+    ))}
+  </div>
+</div>
+
       </section>
 
       {/* Gallery Section */}
