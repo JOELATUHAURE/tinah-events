@@ -47,10 +47,10 @@ function App() {
   ];
 
   const videos = [
-    { id: 'VIDEO_ID_1', title: 'Luxury Wedding Setup' },
-    { id: 'VIDEO_ID_2', title: 'Corporate Event Excellence' },
-    { id: 'VIDEO_ID_3', title: 'Mega Tent Showcase' }
-  ];
+  { id: '13Fd-vOIm5k', title: 'Tinah Events Showcase' },
+  { id: 'G2k05Slr7ys', title: 'Corporate Event Excellence' },
+  { id: '--rk-cHJ7uI', title: 'Mega Tent Showcase' }
+];
 
   const reviews = [
     {
@@ -269,70 +269,54 @@ function App() {
       </section>
 
       {/* Video Showcase Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
-            Experience the Magic – Watch Us in Action!
-          </h2>
-          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-            See how we transform spaces and create unforgettable experiences through our event showcases
-          </p>
-          <div className="relative max-w-4xl mx-auto">
-  <div className="aspect-w-16 aspect-h-9">
-    <iframe
-      width="100%"
-      height="400"
-      src={`https://www.youtube.com/embed/${videos[currentVideoIndex].id}`}
-      title={videos[currentVideoIndex].title}
-      frameBorder="0"
-      allowFullScreen
-    ></iframe>
+
+<section className="py-20 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
+      Experience the Magic – Watch Us in Action!
+    </h2>
+    <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+      See how we transform spaces and create unforgettable experiences through our event showcases
+    </p>
+    <div className="relative max-w-4xl mx-auto">
+      <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+        <LiteYouTubeEmbed
+          id={videos[currentVideoIndex].id}
+          title={videos[currentVideoIndex].title}
+          wrapperClass="yt-lite rounded-lg"
+        />
+      </div>
+
+      <div className="flex justify-between mt-8">
+        <button
+          onClick={previousVideo}
+          className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={nextVideo}
+          className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+
+      <div className="flex justify-center mt-4 space-x-2">
+        {videos.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentVideoIndex(index)}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              index === currentVideoIndex ? 'bg-gold' : 'bg-gray-300'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   </div>
-
-  {/* Display YouTube video link */}
-  <div className="text-center mt-4">
-    <a
-      href={`https://www.youtube.com/watch?v=${videos[currentVideoIndex].id}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 hover:underline"
-    >
-      Watch on YouTube
-    </a>
-  </div>
-
-  <div className="flex justify-between mt-8">
-    <button
-      onClick={previousVideo}
-      className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
-    >
-      <ChevronLeft size={24} />
-    </button>
-    <button
-      onClick={nextVideo}
-      className="bg-black bg-opacity-50 p-3 rounded-full text-white hover:bg-opacity-75 transition-opacity"
-    >
-      <ChevronRight size={24} />
-    </button>
-  </div>
-
-  <div className="flex justify-center mt-4 space-x-2">
-    {videos.map((_, index) => (
-      <button
-        key={index}
-        onClick={() => setCurrentVideoIndex(index)}
-        className={`w-2 h-2 rounded-full transition-colors ${
-          index === currentVideoIndex ? 'bg-gold' : 'bg-gray-300'
-        }`}
-      />
-    ))}
-  </div>
-</div>
-
-
-
-      </section>
-
+</section>
+      
       {/* Gallery Section */}
       <section id="gallery" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
