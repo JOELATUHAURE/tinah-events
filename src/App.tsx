@@ -277,13 +277,12 @@ function App() {
           <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
             See how we transform spaces and create unforgettable experiences through our event showcases
           </p>
-          
           <div className="relative max-w-4xl mx-auto">
   <div className="aspect-w-16 aspect-h-9">
     <iframe
       width="100%"
       height="400"
-      src={`https://www.youtube.com/watch?v=13Fd-vOIm5k&pp=ygUMdGluYWggZXZlbnRz0gcJCb0Ag7Wk3p_U/embed/${videos[currentVideoIndex].id}`}
+      src={`https://www.youtube.com/embed/${videos[currentVideoIndex].id}`}
       title={videos[currentVideoIndex].title}
       frameBorder="0"
       allowFullScreen
@@ -293,7 +292,7 @@ function App() {
   {/* Display YouTube video link */}
   <div className="text-center mt-4">
     <a
-      href={`https://www.youtube.com/watch?v=13Fd-vOIm5k&pp=ygUMdGluYWggZXZlbnRz0gcJCb0Ag7Wk3p_U/watch?v=${videos[currentVideoIndex].id}`}
+      href={`https://www.youtube.com/watch?v=${videos[currentVideoIndex].id}`}
       target="_blank"
       rel="noopener noreferrer"
       className="text-blue-500 hover:underline"
@@ -329,6 +328,8 @@ function App() {
     ))}
   </div>
 </div>
+
+
 
       </section>
 
